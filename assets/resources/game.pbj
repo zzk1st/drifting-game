@@ -1,0 +1,22 @@
+
+function,main
+pushstr,帝都浮生记  第一章
+call,showText
+pushstr,准备好了吗？
+pushstr,让我再想想...
+pushstr,快开始吧！
+call,select
+assign,a
+pushvar,a
+pushnum,0
+eq
+if_not_goto,flowtag.0
+pushstr,怂包！
+call,showText
+goto,flowtag.1
+tag,flowtag.0
+pushstr,你是坠吼滴！
+call,showText
+tag,flowtag.1
+function_end
+
