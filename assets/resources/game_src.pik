@@ -1,13 +1,23 @@
 void main()
 {
   showText("帝都浮生记  第一章");
-  a = select("准备好了吗？", "让我再想想...", "快开始吧！");
+  showText("准备好了吗？");
+  a = select("让我再想想...", "快开始吧！");
   if (a == 0)
   {
     showText("怂包！");
   }
   else
   {
-    showText("你是坠吼滴！");
+    showText("首先，你的性别？");
+    a = select(, "男", "女");
+    if (a == 0)
+    {
+      showText("纯爷们！");
+    }
+    else
+    {
+      showText("女汉子！");
+    }
   }
 }

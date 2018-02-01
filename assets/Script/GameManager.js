@@ -30,6 +30,8 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        curMainText: '',
+        curMainTextPos: 0,
         background: {
             default: null,
             type: cc.Node
@@ -73,14 +75,20 @@ cc.Class({
         pickleVM = new PickleVM(content, gameStats, gameFuncs);
     },
     
-    showText (text) {
-        this.mainText.string = text;
+    incMainText () {
+        this.mainText.string += this.curMainText[this.curMainTextPos++];
     },
 
-    select (mainText, leftText, rightText) {
+    showText (text) {
+        this.curMainText = text;
+        this.curMainTextPos = 0;
+        this.mainText.string = '';
+        this.schedule(this.incMainText, 0.05, this.curMainText.length - 1);
+    },
+
+    select (leftText, rightText) {
         this.buttonPanel.active = true;
 
-        this.mainText.string = mainText;
         this.leftText.string = leftText;
         this.rightText.string = rightText;
     },
@@ -90,7 +98,15 @@ cc.Class({
     },
 
     continueScript() {
-        pickleVM.continue();
+        if (this.curMainTextPos < this.curMainText.length - 1) {
+            this.unschedule(this.incMainText);
+            this.curMainTextPos = this.curMainText.length - 1;
+            this.mainText.string = this.curMainText;
+        } else {
+            if (!this.buttonPanel.active) {
+                pickleVM.continue();
+            }
+        }
     },
 
     onLoad () {
@@ -98,7 +114,7 @@ cc.Class({
         gameFuncs.showText.funcImp = this.showText.bind(this);
         gameFuncs.select.funcImp = this.select.bind(this);
 
-        cc.loader.loadRes('game.pbj', (err, content) => {  
+        cc.loader.loadRes('game', (err, content) => {  
             if (err) {  
                 cc.log(err);  
             } else {  
