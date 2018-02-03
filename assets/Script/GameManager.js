@@ -8,8 +8,8 @@
 //  - [Chinese] http://www.cocos.com/docs/creator/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/editors_and_tools/creator-chapters/scripting/life-cycle-callbacks/index.html
 
-const PickleVM = require('./pickle-vm');
-var pickleVM = {};
+const BaguetteVM = require('./baguette-vm').BaguetteVM;
+var baguetteVM = {};
 var gameStats = {
     a: 1,
     b: 2,
@@ -72,7 +72,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     loadVM (content) {
-        pickleVM = new PickleVM(content, gameStats, gameFuncs);
+        baguetteVM = new BaguetteVM(content, gameStats, gameFuncs);
     },
     
     incMainText () {
@@ -94,7 +94,7 @@ cc.Class({
     },
 
     runFunc (funcName) {
-        pickleVM.runFunc('main');
+        baguetteVM.runFunc('main');
     },
 
     continueScript() {
@@ -104,7 +104,7 @@ cc.Class({
             this.mainText.string = this.curMainText;
         } else {
             if (!this.buttonPanel.active) {
-                pickleVM.continue();
+                baguetteVM.continue();
             }
         }
     },
@@ -132,7 +132,7 @@ cc.Class({
 
     onButtonPressed (event, customEventData) {
         this.buttonPanel.active = false;
-        pickleVM.continue(customEventData);
+        baguetteVM.continue(customEventData);
     },
 
     start () {

@@ -5,7 +5,7 @@ const State = {
   Complete: 3,
 };
 
-class PickleVM {
+class BaguetteVM {
   constructor(content, envVars, envFuncs) {
     // static properties
     this.content = content;
@@ -233,5 +233,5 @@ class PickleVM {
   }
 }
 
-PickleVM.State = State;
-module.exports = PickleVM;
+BaguetteVM.State = State;
+exports.BaguetteVM = BaguetteVM;
