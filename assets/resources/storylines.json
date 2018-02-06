@@ -1,0 +1,32 @@
+{
+  "activeStorylines": [
+    "Career",
+    "Love"
+  ],
+  "storylines": {
+    "Career": {
+      "events": {
+        "DeliverFood" : {
+          "repeatable": true,
+          "done": false
+        },
+        "SalaryBump": {
+          "repeatable": false,
+          "done": false
+        }
+      }
+    },
+    "Love": {
+      "events": {
+        "Meet" : {
+          "repeatable": false,
+          "done": false
+        },
+        "Movie": {
+          "repeatable": true,
+          "done": false
+        }
+      }
+    }
+  }
+}

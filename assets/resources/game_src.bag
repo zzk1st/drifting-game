@@ -1,4 +1,45 @@
-void main()
+function Career.DeliverFood.probability()
+{
+  return 0.4;
+}
+
+function Career.DeliverFood.run()
+{
+  showText("送快递");
+  showText("送一个pizza");
+}
+
+function Career.SalaryBump.probability()
+{
+  return 0.6;
+}
+
+function Career.SalaryBump.run()
+{
+  showText("涨工资");
+}
+
+function Love.Meet.probability()
+{
+  return 0.8;
+}
+
+function Love.Meet.run()
+{
+  showText("约会");
+}
+
+function Love.Movie.probability()
+{
+  return 0.2;
+}
+
+function Love.Movie.run()
+{
+  showText("看电影");
+}
+
+function main()
 {
   showText("帝都浮生记  第一章");
   showText("准备好了吗？");
