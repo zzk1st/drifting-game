@@ -26,7 +26,11 @@ function Love.Meet.probability()
 
 function Love.Meet.run()
 {
-  showText("约会");
+  if (a==1 && b==2) {
+    showText("约会成功！");
+  } else {
+    showText("约会失败！");
+  }
 }
 
 function Love.Movie.probability()
