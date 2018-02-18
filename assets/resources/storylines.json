@@ -5,6 +5,7 @@
   ],
   "storylines": {
     "Career": {
+      "title": "职业",
       "events": {
         "DeliverFood" : {
           "repeatable": true,
@@ -17,6 +18,7 @@
       }
     },
     "Love": {
+      "title": "爱情",
       "events": {
         "Meet" : {
           "repeatable": false,
