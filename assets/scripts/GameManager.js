@@ -25,18 +25,26 @@ var gameFuncs = {
     },
 };
 
+const ModName = 'beijing-drifting';
+
 class ResourceLoader {
     constructor () {
         this.bicLoadingComplete = false;
         this.storylineDataLoadingComplete = false;
 
-        cc.loader.loadRes('game', (err, bicData) => {
+        cc.loader.loadRes('mods/' + ModName + '/game', (err, bicData) => {
+            if (err) {
+                throw new Error(`loading resource err: ${err}!`);
+            }
             this.bicLoadingComplete = true;
             this.bicData = bicData;
             this.onResLoadingComplete();
         });
 
-        cc.loader.loadRes('storylines', (err, storylineData) => {
+        cc.loader.loadRes('mods/' + ModName + '/storylines', (err, storylineData) => {
+            if (err) {
+                throw new Error(`loading resource err: ${err}!`);
+            }
             this.storylineDataLoadingComplete = true;
             this.storylineData = storylineData;
             this.onResLoadingComplete();

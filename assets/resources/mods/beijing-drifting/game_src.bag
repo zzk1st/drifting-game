@@ -1,0 +1,44 @@
+function Career.DeliverFood.probability()
+{
+  return 0.4;
+}
+
+function Career.DeliverFood.run()
+{
+  game.showText("送快递");
+  game.showText("送一个pizza");
+}
+
+function Career.SalaryBump.probability()
+{
+  return 0.6;
+}
+
+function Career.SalaryBump.run()
+{
+  game.showText("涨工资");
+}
+
+function Love.Meet.probability()
+{
+  return 0.8;
+}
+
+function Love.Meet.run()
+{
+  if (game.a==1 && game.b==2) {
+    game.showText("约会成功！");
+  } else {
+    game.showText("约会失败！");
+  }
+}
+
+function Love.Movie.probability()
+{
+  return 0.2;
+}
+
+function Love.Movie.run()
+{
+  game.showText("看电影");
+}
