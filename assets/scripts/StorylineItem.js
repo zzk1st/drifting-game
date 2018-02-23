@@ -21,7 +21,15 @@ cc.Class({
             throw new Error(`undefined storyline, storylineId=${this.storylineId}`);
         }
 
+        // set title
         this.node.getChildByName('Label').getComponent(cc.Label).string = this.storyline.title;
+
+        // load the icon from the icon atlas
+        cc.loader.loadRes(GameManager.instance.getResPath('textures/icons'), cc.SpriteAtlas, (err, atlas) => {
+            let frame = atlas.getSpriteFrame(this.storyline.iconId);
+            let sprite = this.node.getChildByName('Icon').getComponent(cc.Sprite);
+            sprite.spriteFrame = frame;
+        });
     },
 
     onStorylineSelected (event, customEventData) {

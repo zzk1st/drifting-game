@@ -6,6 +6,7 @@
   "storylines": {
     "Career": {
       "title": "职业",
+      "iconId": "icon-002",
       "events": {
         "DeliverFood" : {
           "repeatable": true,
@@ -19,6 +20,7 @@
     },
     "Love": {
       "title": "爱情",
+      "iconId": "icon-003",
       "events": {
         "Meet" : {
           "repeatable": false,

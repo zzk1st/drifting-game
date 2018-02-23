@@ -25,14 +25,13 @@ var gameFuncs = {
     },
 };
 
-const ModName = 'beijing-drifting';
 
 class ResourceLoader {
     constructor () {
         this.bicLoadingComplete = false;
         this.storylineDataLoadingComplete = false;
 
-        cc.loader.loadRes('mods/' + ModName + '/game', (err, bicData) => {
+        cc.loader.loadRes(GameManager.instance.getResPath('game'), (err, bicData) => {
             if (err) {
                 throw new Error(`loading resource err: ${err}!`);
             }
@@ -41,7 +40,7 @@ class ResourceLoader {
             this.onResLoadingComplete();
         });
 
-        cc.loader.loadRes('mods/' + ModName + '/storylines', (err, storylineData) => {
+        cc.loader.loadRes(GameManager.instance.getResPath('storylines'), (err, storylineData) => {
             if (err) {
                 throw new Error(`loading resource err: ${err}!`);
             }
@@ -140,6 +139,11 @@ var GameManager = cc.Class({
     /////////////////////////////////////////////
     // Public Functions 
     /////////////////////////////////////////////
+    getResPath (path) {
+        const ModName = 'beijing-drifting';
+        return 'mods/' + ModName + '/' + path;
+    },
+
     pickStoryline (storylineId) {
         // ask storyline manager to pick a event from a storyline
         let eventParams = this.storylineManager.pickEvent(storylineId);
